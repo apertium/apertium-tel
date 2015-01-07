@@ -1,22 +1,40 @@
+! Telugu TWOLC file
+
 Alphabet
- A B Ç D E Ä F G H I J Ž K L M N Ň O Ö P R S Ş T U Ü W Y Ý Z
- a b ç d e ä f g h i j ž k l m n ň o ö p r s ş t u ü w y ý z
- %{A%}:a %>:0  ;
+
+  క  ఖ  గ  ఘ  ఙ  చ  ఛ  జ  ఝ  ఞ   ట  ఠ  డ  ఢ  ణ  త  థ  ద  ధ  న 
+  ప  ఫ  బ  భ  మ  య  ర  ల  వ  ళ  శ  ష  స  హ  ఱ 
+
+  అ  ఆ   ఇ  ఈ  ఉ  ఊ  ఋ  ౠ  ఌ  ౡ  ఎ  ఏ  ఐ  ఒ  ఓ  ఔ  అం  అః 
+
+్  ు  ి 
+
+  %{u%}:్ 
+  %>:0  ;
 
 Sets
 
-Vowel = A E Ä I O Ö U Ü Y Ý 
-        a e ä i o ö u ü y ý ;
+Achiphonemes = %{u%} ; 
 
-Rules 
+Cns =   క  ఖ  గ  ఘ  ఙ  చ  ఛ  జ  ఝ  ఞ   ట  ఠ  డ  ఢ  ణ  త  థ  ద  ధ  న 
+  ప  ఫ  బ  భ  మ  య  ర  ల  వ  ళ  శ  ష  స  హ  ఱ  ; 
 
-"Remove suffix vowel with vowel-ending stem"
-i:0 <=> Vow %{VSUF%}:0 _ [ m | n ] ;
+Vow =   అ  ఆ   ఇ  ఈ  ఉ  ఊ  ఋ  ౠ  ఌ  ౡ  ఎ  ఏ  ఐ  ఒ  ఓ  ఔ  అం  అః  ;
 
-! Resources:
-! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
-! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
-! http://hfst.sourceforge.net/
-! http://wiki.apertium.org/wiki/Twol
-! http://wiki.apertium.org/wiki/Hfst
+Rules
 
+"{u} appears word final"
+%{u%}:ు <=> _ .#. ;
+
+"TT DD shortening in Plural"
+Cx:0 <=> Cx ్:  _ %{u%}: %>: ల ; 
+    where Cx in ( ట డ ) ;
+ ! Teststring:
+ ! ట ్ట%{u%}%>ల
+    
+"Double Halant Deletion"
+%{u%}:0 <=>  ్:  ట:0  _   ;  !  Trying to delete the second halant
+ ! ్:0 <=> _ ట:0    %{u%}: ;  !  Trying to delete the first halant
+
+ ! Teststring:
+ !    ్ట%{u%}%>ల

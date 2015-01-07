@@ -1,39 +1,51 @@
-! Morphological Transducer for Telugu
-
 Multichar_Symbols
 
-! Part of speech categories
-%<n%>  ! Noun
-%<pl%> ! Plural
-%<sg%> ! Singular
+%<n%>   ! Имя существительное · Noun
+%<pl%>  ! Plural
+%<nom%> !
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!                       M O R P H O T A C T I C S                         !!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%<nt%>  ! Neuter
+%<m%>   ! Masculine
+%<f%>   ! Feminine
+
+%{u%}   ! 
+
+%>      ! Morpheme boundary
 
 LEXICON Root
 
-NounRoot ;
+Nouns ; 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!                          L E X I C O N                                  !!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+LEXICON K
 
-LEXICON NounRoot
+# ;
 
-house RegNounInfl ; ! A noun
+LEXICON CASE
 
-LEXICON RegNounInfl
+%<nom%>: K ;
 
-%<n%>%<sg%>:   # ;
-%<n%>%<pl%>:s   # ;
+LEXICON NUMBER
 
-! Resources:
-! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
-! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
-! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
-! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
-! http://hfst.sourceforge.net/
-! http://www.cis.upenn.edu/~cis639/docs/lexc.html
-! http://wiki.apertium.org/wiki/Hfst
+%<sg%>: CASE ; 
+%<pl%>:%>లు  CASE ; ! lu>
 
+LEXICON Nn
+
+%<n%>%<nt%>: NUMBER ;
+
+LEXICON Nf
+
+%<n%>%<f%>: NUMBER ;
+
+LEXICON Nm
+
+%<n%>%<m%>: NUMBER ;
+
+LEXICON Nouns
+
+కుక్క:కుక్క Nn ; ! "dog"
+ఆవు:ఆవు Nn ; ! "cow"
+పేరు:పేర%{u%} Nn ; ! "name"
+చెట్టు:చెటటు%{u%} Nn ; ! "tree" ceTøTu
+పెట్టె:పెట్టె Nn ; ! "box" peTøTe
+కొడుకు:కొడుకు Nm ; ! "son" 

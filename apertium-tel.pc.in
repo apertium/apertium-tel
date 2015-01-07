@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=@libdir@
+dir=@libdir@/apertium/apertium-tel
+srcdir=@datarootdir@/apertium/apertium-tel
+
+Name: apertium-tel
+Description: Finite-state morphological transducer and constraint grammar for Telugu 
+Version: @VERSION@
+

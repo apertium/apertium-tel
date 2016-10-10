@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <modes>
 
-  <mode name="tel-twol">
+  <mode name="tel-twol" install="yes">
     <pipeline>
       <program name="hfst-strings2fst -S"/>
       <program name="hfst-compose-intersect">
@@ -11,7 +11,7 @@
     </pipeline>
   </mode>
 
-  <mode name="tel-morph">
+  <mode name="tel-morph" install="yes">
     <pipeline>
       <program name="lt-proc -w">
         <file name="tel.automorf.bin"/>
@@ -19,7 +19,7 @@
     </pipeline>
   </mode>
 
-  <mode name="tel-lexc">
+  <mode name="tel-lexc" install="yes">
     <pipeline>
       <program name="hfst-lookup">
         <file name=".deps/tel.LR.lexc.hfst"/>
@@ -27,7 +27,7 @@
     </pipeline>
   </mode>
 
-  <mode name="tel-gener">
+  <mode name="tel-gener" install="yes">
     <pipeline>
       <program name="lt-proc -g">
         <file name="tel.autogen.bin"/>
@@ -35,7 +35,7 @@
     </pipeline>
   </mode>
 
-  <mode name="tel-tagger">
+  <mode name="tel-tagger" install="yes">
     <pipeline>
       <program name="lt-proc -w">
         <file name="tel.automorf.bin"/>
@@ -46,7 +46,7 @@
     </pipeline>
   </mode>
 
-  <mode name="tel-disam">
+  <mode name="tel-disam" install="yes">
     <pipeline>
       <program name="lt-proc -w">
         <file name="tel.automorf.bin"/>

@@ -2,8 +2,6 @@
 ## Makefile for apertium-tel
 ###############################################################################
 
-RELEASE=0.1
-VERSION=0.1.0
 LANG1=tel
 BASENAME=apertium-$(LANG1)
 
@@ -141,7 +139,7 @@ if HAVE_HFSTOSPELL
 EXTRA_TARGETS += $(LANG1).zhfst
 endif # HAVE_HFSTOSPELL
 
-apertium_tel_DATA=$(TARGETS_COMMON) $(EXTRA_TARGETS)
+apertium_tel_DATA=$(TARGETS_COMMON) $(EXTRA_TARGETS) $(LANG1).prob
 
 pkgconfigdir = $(prefix)/share/pkgconfig
 pkgconfig_DATA = $(BASENAME).pc
@@ -172,4 +170,3 @@ test: all
 	@echo "TODO test analysis results" > .test-ref
 	@diff .test-ref .test-mt
 	@rm .test-ref .test-mt
-

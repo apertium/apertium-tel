@@ -10,3 +10,15 @@
 /configure
 /install-sh
 /missing
+/*.bin
+/*.hfst
+/*.gz
+/*.zhfst
+/.DS_Store
+/modes
+/*.mode
+/*-*.prob
+/.deps
+/config.in
+/config
+/test/*-output.txt
